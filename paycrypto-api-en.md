@@ -1,6 +1,6 @@
-# Railone API Documentation
+# Paycrypto API Documentation
 
-* [Railone API](#Railone-API)
+* [Paycrypto API](#Paycrypto-API)
 * [API Specifications](#API-Specifications)
 * [1.Institution](#Institution)
      * [1.1 Query Card type](#Query-Card-type)
@@ -58,10 +58,10 @@
      * [8.4 KYC Failure Error Codes](#KYC-Failure-Error-Codes)
 
 
-## Railone API
+## Paycrypto API
 
 
-Welcome to the Railone API documentation. This document is aimed at Railone ToB's card business. Currently, it supports three card types, namely F card, J card and P card. The corresponding metal cards are F-M card, J-M card and P-M card. The corresponding virtual cards are F-V card, J-V card and P-V card. The fees and the parameters are slightly different for cards.
+Welcome to the Paycrypto API documentation. This document is aimed at Paycrypto ToB's card business. Currently, it supports three card types, namely F card, J card and P card. The corresponding metal cards are F-M card, J-M card and P-M card. The corresponding virtual cards are F-V card, J-V card and P-V card. The fees and the parameters are slightly different for cards.
 
   | Card name |  Currency  |           distinguish            |
   | :--------: | :----: | :------------------------------ |
@@ -79,23 +79,23 @@ Welcome to the Railone API documentation. This document is aimed at Railone ToB'
   
 API usage steps are as follows:
 
-1. Please register an institution account at [https://www.railone.io/](https://www.railone.io/), and if you are unable to access, please provide your IP address.
-2. After the Railone audit is passed, the institution can login successfully.
+1. Please register an institution account at [https://customer.paycrypto.com/](https://customer.paycrypto.com/), and if you are unable to access, please provide your IP address.
+2. After the Paycrypto audit is passed, the institution can login successfully.
 3. Checks the wallet address and deposit, support USDT, BTC, ETH, etc..
 4. Create Appkey and secret, and optionally configure webhook callback address.
-5. Call the API for KYC, card opening, card activation, deposit and other operations. Railone will notify through the callback address when the status changes.
+5. Call the API for KYC, card opening, card activation, deposit and other operations. Paycrypto will notify through the callback address when the status changes.
 
 > It is recommended to testing in the test environment before using the production environment.
 
 Dashboard :
 
-* Test environment dashboard (restricted by IP whitelist): https://customer.sandbox.railone.io/
-* Production environment dashboard (restricted by IP whitelist): https://customer.railone.io/
+* Test environment dashboard (restricted by IP whitelist): https://customer.sandbox.paycrypto.com/
+* Production environment dashboard (restricted by IP whitelist): https://customer.paycrypto.com/
 
 API :
 
-* Test environment: https://api.sandbox.railone.io/
-* Production environment: https://api.railone.io/
+* Test environment: https://api.sandbox.paycrypto.com/
+* Production environment: https://api.paycrypto.com/
 
 ## API Specifications
 
@@ -167,7 +167,7 @@ amount=190&from_address=Ae9ujqUnAtH9yRiepRvLUE3t9R2NbCTZPG&to_address=AUol16ghiT
 
 #### Code Implementation and Examples:
 
-For illustrative sample code, please refer to [https://github.com/railone-io/railone-sdk-java](https://github.com/railone-io/railone-sdk-java)
+For illustrative sample code, please refer to [https://github.com/paycrypto-com/paycrypto-sdk-java](https://github.com/paycrypto-com/paycrypto-sdk-java)
 
 
 ## Institution
@@ -1001,7 +1001,7 @@ method：POST
 
 | Parameter |  Type    | Description |
 | :------------: | :----------: |:---------- |
-|     tx_id      | String | Railone transaction ID  |
+|     tx_id      | String |  transaction ID  |
 |    coin_type    |  int   |          Coin type          |
 |   tx_amount   | String |                        Deposit amount                         |
 |     exchange_fee_rate      | String | Fee rate for exchanging digital coin to coin_type   |
@@ -1058,7 +1058,7 @@ method：POST
 
 | Parameter |  Type    | Description |
 | :------------: | :----------: |:---------- |
-|     tx_id      | String | Railone transaction ID  |
+|     tx_id      | String |  transaction ID  |
 |    coin_type    |  int   |          Coin type          |
 |   tx_amount   | String |                        Deposit amount                         |
 |     exchange_fee_rate      | String | Fee rate for exchanging digital coin to USDT   |
@@ -1124,7 +1124,7 @@ method：GET
 
 | Parameter |  Type  | Whether Required | Description    |
 | :-------: | :----: | :--------------: | :------------- |
-|   tx_id   | String |     Required     | Railone Transaction ID or cust_tx_id|
+|   tx_id   | String |     Required     | Transaction ID or cust_tx_id|
 
 - Response：
 
@@ -1508,12 +1508,12 @@ virtualcard decrypt：
 |  encrypt_data    | String[]  |    encrypted data          |
 |  public_key  |  String    |  public key    |
 
-> encryt_data decrypt [RSA example](https://github.com/railone-io/railone-sdk-java/blob/master/src/test/java/com/railone/open/api/test/RSATest.java#L60) or [ECIES example](https://github.com/railone-io/railone-sdk-java/blob/master/src/test/java/com/railone/open/api/test/BankTest.java#L75)
+> encryt_data decrypt [RSA example](https://github.com/paycrypto-com/paycrypto-sdk-java/blob/master/src/test/java/com/railone/open/api/test/RSATest.java#L60) or [ECIES example](https://github.com/paycrypto-com/paycrypto-sdk-java/blob/master/src/test/java/com/railone/open/api/test/BankTest.java#L75)
 
 
 ### User triggers a card withdrawal password reset Email (Currently not supported)
 
-An institution invokes the Railone API triggering the action that sends the bank card withdrawal password reset Email to the user's account.
+An institution invokes the Paycrypto API triggering the action that sends the bank card withdrawal password reset Email to the user's account.
 
 - Request:
 
@@ -1676,7 +1676,7 @@ The data structure of header：
 --header Signature：UqAwtsx9HF3s5yJh/c8luvUITZNXE/f3aujwndnXLBU=
 
 ```
-How to verify signature ? [Example](https://github.com/railone-io/railone-sdk-java/blob/master/src/test/java/com/railone/open/api/test/NotificationTest.java)
+How to verify signature ? [Example](https://github.com/paycrypto-com/paycrypto-sdk-java/blob/master/src/test/java/com/railone/open/api/test/NotificationTest.java)
 
 
 The data structure of response should as follows. **If you response correct data structure, the event will not be send again**:
@@ -2007,7 +2007,7 @@ events element convert string to json:
 |   111029    | Invalid mobile verification code                            |
 |   111030    | Unable to fetch bank details                                |
 |   111031    | Specified bank not found                                    |
-|   111032    | Railone configuration not found                             |
+|   111032    | configuration not found                             |
 |   111033    | Birthdate field cannot be left empty                        |
 |   111034    | Picture could not be uploaded                               |
 |   111035    | Max. query time limited to one month                        |

@@ -109,7 +109,7 @@
 
 API 使用步骤：
 
-1. 请在 [https://www.paycrypto.com/](https://www.paycrypto.com/) 注册机构账户，如果访问不了请提供你的IP地址。
+1. 请在 [https://customer.paycrypto.com/](https://customer.paycrypto.com/) 注册机构账户，如果访问不了请提供你的IP地址。
 2. 我们审核通过后，机构才可以登录成功。
 3. 机构登录，查看钱包地址，给钱包充值，支持 USDT、BTC、ETH 等。
 4. 机构登录，创建 Appkey 和 secret，可选择配置 webhook 回调地址。
